@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="none" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test name="Test">
+    <classes>
+      <class name="org.task.DriverScript"/>
+    </classes>
+  </test> <!-- Test -->
+  <test parallel="none" name="Test(failed)">
+    <classes>
+      <class name="org.task.DriverScript">
+        <methods>
+          <include name="startTime"/>
+          <include name="endTime"/>
+          <include name="testCase21"/>
+          <include name="quitbro"/>
+          <include name="loadbrowser"/>
+        </methods>
+      </class> <!-- org.task.DriverScript -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
