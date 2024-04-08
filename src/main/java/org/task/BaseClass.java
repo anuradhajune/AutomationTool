@@ -7,10 +7,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -475,7 +482,58 @@ public static void dateAndTime() {
 
 }
 
+public static Map<Integer,String> JdbcConnection(String query,String id,String Firstname){
+	Connection con=null;
+	Map<Integer,String>mp=new LinkedHashMap<Integer,String>();
+	//ArrayList<>
+	try {
 
+		//load the driver
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		
+		//2. connect the database
+		con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","hr","admin");
+		
+		//3. write a sql query
+		String Query="select * from employees";
+		
+		//4. prepare the statement
+		PreparedStatement s= con.prepareStatement(Query);
+		
+		//5. Execute Query
+		ResultSet rs= s.executeQuery();
+		
+		//6. Iterate the results
+		while(rs.next()) {
+			int empid=rs.getInt(id);
+			
+			System.out.println(empid);
+			String firstname=rs.getString(Firstname);
+			System.out.println(firstname);
+			mp.put(empid,firstname);
+			
+		}
+		
+		
+		
+		
+	} catch (ClassNotFoundException | SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		try {
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	return mp;
+
+
+
+}
 
 
 

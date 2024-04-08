@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="none" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test name="Test">
+<suite parallel="none" name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test name="Default test" verbose="2">
     <classes>
-      <class name="org.task.DriverScript"/>
+      <class name="org.task.JdbcTest"/>
     </classes>
-  </test> <!-- Test -->
-  <test parallel="none" name="Test(failed)">
+  </test> <!-- Default test -->
+  <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="org.task.DriverScript">
+      <class name="org.task.JdbcTest">
         <methods>
           <include name="startTime"/>
           <include name="endTime"/>
-          <include name="testCase21"/>
-          <include name="quitbro"/>
+          <include name="testCase19"/>
           <include name="loadbrowser"/>
+          <include name="quitbro"/>
         </methods>
-      </class> <!-- org.task.DriverScript -->
+      </class> <!-- org.task.JdbcTest -->
     </classes>
-  </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

@@ -3,25 +3,20 @@
 <suite parallel="none" name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test" verbose="2">
     <classes>
-      <class name="org.task.DriverScript"/>
+      <class name="org.task.JdbcTest"/>
     </classes>
   </test> <!-- Default test -->
   <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="org.task.DriverScript">
+      <class name="org.task.JdbcTest">
         <methods>
-          <include name="testCase19"/>
           <include name="startTime"/>
           <include name="endTime"/>
-          <include name="testCase21"/>
-          <include name="quitbro"/>
+          <include name="testCase19"/>
           <include name="loadbrowser"/>
-          <include name="testCase4"/>
-          <include name="testCase12"/>
-          <include name="testCase20"/>
-          <include name="testCase3"/>
+          <include name="quitbro"/>
         </methods>
-      </class> <!-- org.task.DriverScript -->
+      </class> <!-- org.task.JdbcTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

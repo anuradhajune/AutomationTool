@@ -2,6 +2,7 @@ package org.task;
 
 
 import java.io.IOException;
+import java.util.Map;
 
 //import org.first.LoginPagePojo;
 import org.testng.annotations.AfterClass;
@@ -226,6 +227,10 @@ public class DriverScript extends BaseClass {
 	@Test
 	public void testCase19() throws InterruptedException {
 		// password field allows alphanumeric
+		String query="select * from employees";
+		String id="employee_id";
+		String Firstname="first_name";
+		
 		launchUrl("https://www.onetravel.com/");
 		OneTravelPojoClass g=new OneTravelPojoClass();
 		elementWait(g.getsignup());
@@ -237,6 +242,7 @@ public class DriverScript extends BaseClass {
 		btnClk(g.getNextbtn());
 		Thread.sleep(2000);
 		elementWait(g.getFirstname());
+		Map mp=JdbcConnection(query,id,Firstname);
 		fillTextbox(g.getFirstname(), "anu");
 		elementWait(g.getLastname());
 		fillTextbox(g.getLastname(), "raja");
